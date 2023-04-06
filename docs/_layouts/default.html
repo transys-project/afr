@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+
+    {% if site.google_analytics %}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+      </script>
+    {% endif %}
+    <meta charset="UTF-8">
+
+{% seo %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Enabling High Quality Real-Time Communications with Adaptive Frame-Rate</h1>
+      <h2 class="project-tagline">
+        <a href="https://zilimeng.com"><b><font color=white>Zili Meng</font></b></a>, 
+        <a href="http://routing.netlab.edu.cn/tiki-index.php?page=Tingfeng+Wang"><b><font color=white>Tingfeng Wang</font></b></a>,
+        <a href="https://bobankh.com/"><b><font color=white>Yixin Shen</font></b></a>, 
+        <a href="https://bowangthu.github.io/"><b><font color=white>Bo Wang</font></b></a>, 
+        <a href="http://routing.netlab.edu.cn/tiki-index.php?page=Mingwei+Xu"><b><font color=white>Mingwei Xu</font></b></a>, <br>
+        <a href="https://sh2021.livevideostack.cn/speakers/3274"><b><font color=white>Rui Han</font></b></a>, 
+        <a href="https://sh2021.livevideostack.cn/speakers/2570"><b><font color=white>Honghao Liu</font></b></a>, 
+        <a href="https://people.csail.mit.edu/venkatar/"><b><font color=white>Venkat Arun</font></b></a>,
+        <a href="https://cse.buffalo.edu/~hongxinh/"><b><font color=white>Hongxin Hu</font></b></a>,
+        <a href="https://www.linkedin.com/in/%E9%9B%AA-%E9%AD%8F-0a7694116"><b><font color=white>Xue Wei</font></b></a>
+      </h2>
+      <h2 class="project-tagline">
+        <a href="https://www.tsinghua.edu.cn"><b><font color=white>Tsinghua University</font></b></a>, 
+        <a href="https://tencent.com"><b><font color=white>Tencent</font></b></a>, 
+        <a href="http://www.bupt.edu.cn/"><b><font color=white>Beijing University of Posts and Telecommunications</font></b></a>, 
+        <a href="https://zgclab.edu.cn/?locale=zh_CN"><b><font color=white>Zhongguancun Laboratory</font></b></a>, 
+        <a href="https://web.mit.edu/"><b><font color=white>Massachusetts Institute of Technology</font></b></a>, 
+        <a href="https://www.buffalo.edu/"><b><font color=white>University at Buffalo, SUNY</font></b></a>
+      </h2>
+      <a href="https://github.com/transys-project/afr" class="btn">View on GitHub</a>
+      <a href="https://zilimeng.com/papers/afr-nsdi23.pdf" class="btn">Paper</a>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+
+    </main>
+  </body>
+</html>
