@@ -49,6 +49,15 @@ python main.py --trace test-trace --log test-log --action test-action --result t
 # for enumerate baselines
 python main.py --trace test-trace --log test-log --action test-action --result test-result --algorithm qlen --qlen_target_arri_seq 0123 --mode debug
 ```
+## Trace format
+Here we provide a sample trace in the `test-trace` folder. Each line records the information of one video frame collected from our production environment, where the 7 columns are:
+* Date (not used)
+* Time (not used)
+* Flow ID (not used)
+* Queueing time (ms) -- the time the frame is queued in the decoder queue. Note that this value is **NOT** used for simulating the queuing delay. Instead, we keep this value because we find that sometimes the CPU scheduling delay can also contribute to the frame delays. To make the simulator more faithful, we use this (together with the tiemstamp) to estimate how long the CPU scheduling delay is. Implementation at [# CPU time slicing delay counted in decoding delay](https://github.com/transys-project/afr/blob/f758c4b63e9d41a44e3d258a5d85c187a03fc5de/sim/traceloader.py#L31-L35).
+* Decoding time (ms)
+* Network RTT (ms)
+* Arrival timestamp (ms)
 
 ## How does `env.py` work?
 The main fucntion of the environment is implemented in the `step()` function. It takes one frame as input, calculates the dequeued frames between the arrival of two frames, and enqueues the newly arrival frame. The final queue states are then returned to the main loop.
